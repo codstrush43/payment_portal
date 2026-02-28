@@ -21,7 +21,9 @@ public class Insert_into_wallet extends HttpServlet {
             throws ServletException,IOException{
         res.setContentType("text/html");
         PrintWriter pw=res.getWriter();
-        int user_id = Integer.parseInt(req.getParameter("user_id"));
+        HttpSession session=req.getSession(false);
+        Integer id=(Integer)session.getAttribute("user_id");
+        int user_id=id;
         double amount = Double.parseDouble(req.getParameter("amt"));
         try{
 //        Class.forName("com.mysql.cj.jdbc.Driver");

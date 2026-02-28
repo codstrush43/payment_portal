@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import jakarta.servlet.RequestDispatcher;
+//import jakarta.servlet.HttpSession;
 
 
 @WebServlet("/login")
@@ -40,6 +41,9 @@ public class login extends HttpServlet{
        {
            if(rs.getString("password").equals(pass))
            {
+               HttpSession session=req.getSession(true);
+               session.setAttribute("user_id",user_id);
+               session.setAttribute("pass",pass);
                RequestDispatcher rd=req.getRequestDispatcher("insert_into_wallet.html");
                rd.forward(req,res);
            }
@@ -47,6 +51,7 @@ public class login extends HttpServlet{
            {
                pw.println("<h1>User not founded<br> please login again!!</h1>");
                pw.println("<a href='login.html'>login</a>");
+               
            }
        }else
        {
