@@ -19,6 +19,13 @@ public class AuthFilter implements Filter {
     throws ServletException,IOException{
         HttpServletRequest req=(HttpServletRequest)request;
         HttpServletResponse res=(HttpServletResponse)response;
+        String path=req.getServletPath();
+        
+        if(path.equals("/http://localhost:9494/payment_portal/login.html") || path.equals("/http://localhost:9494/payment_portal/sign-up.html"))
+        {
+            fc.doFilter(request,response);
+            return;
+        }
         
         HttpSession session = req.getSession(false);
         if(session!=null)
@@ -30,13 +37,7 @@ public class AuthFilter implements Filter {
             fc.doFilter(request,response);
         }
         }
-        else
-        {
-//            pw.println("<h1>User not founded<br> please login again!!</h1>");
-//            pw.println("<a href='login.html'>login</a> <span> <a href='sign-up.html'>sign-up</a>  ");
-            RequestDispatcher rd=req.getRequestDispatcher("login.html");
-            rd.forward(req,res);
-        }
+        res.sendRedirect("/payment_portal/login.html");
     }
 //    @Override
     public void destroy() {

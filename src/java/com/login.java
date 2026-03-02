@@ -44,7 +44,7 @@ public class login extends HttpServlet{
                HttpSession session=req.getSession(true);
                session.setAttribute("user_id",user_id);
                session.setAttribute("pass",pass);
-               RequestDispatcher rd=req.getRequestDispatcher("insert_into_wallet.html");
+               RequestDispatcher rd=req.getRequestDispatcher("home.html");
                rd.forward(req,res);
            }
            else

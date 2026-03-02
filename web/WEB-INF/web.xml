@@ -14,5 +14,11 @@
         <url-pattern>/insert_into_wallet.html</url-pattern>
         <!--<url-pattern>/insert_into_wallet.html</url-pattern>-->
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>authFilter</filter-name>
+        <url-pattern>/transaction.html</url-pattern>
+        <!--<url-pattern>/insert_into_wallet.html</url-pattern>-->
+    </filter-mapping>
+    
 
 </web-app>
