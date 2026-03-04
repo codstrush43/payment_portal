@@ -26,7 +26,6 @@ public class transaction extends HttpServlet{
         HttpSession session=req.getSession(false);
         Integer id=(Integer)session.getAttribute("user_id");
         int sender_user_id=id;
-        
         int receiver_user_id=Integer.parseInt(req.getParameter("user_id"));
         int amount=Integer.parseInt(req.getParameter("amount"));
         
@@ -46,8 +45,19 @@ public class transaction extends HttpServlet{
             
             if(curr_bal<amount)
             {
-                pw.println("<h1>You Do Not Have That Much Balance<br>Please Add Balance</h1>");
-                return;
+                String fail_transaction_query="INSERT INTO transaction (sender_id,receiver_id,amount,status) values (?,?,?,?);";
+                ps=con.prepareStatement(fail_transaction_query);
+                ps.setInt(1,sender_user_id);
+                ps.setInt(2,receiver_user_id);
+                ps.setInt(3,amount);
+                ps.setString(4,"Failed");
+                int check=ps.executeUpdate();
+                if(check>0)
+                {
+                    con.commit();
+                    pw.println("<h1>You Do Not Have That Much Balance<br>Please Add Balance</h1>");
+                    return;
+                }
             }
             
             String sender_query="update wallet set balance = balance - ? where user_id=?";
@@ -63,9 +73,25 @@ public class transaction extends HttpServlet{
             
             if(sender_check>0 && receiver_check>0)
             {
-                con.commit();
-                pw.println("<h1>Transaction Successful!!");
-            }
+                
+                String transaction_history_query="INSERT INTO transaction (sender_id,receiver_id,amount,status) values (?,?,?,?);";
+                ps=con.prepareStatement(transaction_history_query);
+                ps.setInt(1,sender_user_id);
+                ps.setInt(2,receiver_user_id);
+                ps.setInt(3,amount);
+                ps.setString(4,"Successful");
+                int check=ps.executeUpdate();
+                if(check>0)
+                {
+                    con.commit();
+                    pw.println("<h1>Transaction Successful!!");
+                }
+                else
+                {
+                    con.rollback();
+                    pw.println("<h1>Somthing Went Wrong <br>Please Try Again!!!</h1>");
+                }
+            }       
             else
             {
                 con.rollback();
