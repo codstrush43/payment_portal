@@ -1,19 +1,110 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>
-            <a href="sign-up.html">
-                <button type="submit">sign-up</button>
-            </a>
-        </div>
-    </body>
+<head>
+    <title>Payment Portal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(120deg,#74ebd5,#ACB6E5);
+    height:100vh;
+}
+
+.topbar{
+    width:100%;
+    padding:15px 30px;
+    display:flex;
+    justify-content:flex-end;
+}
+
+.topbar a{
+    text-decoration:none;
+    color:white;
+    background:#333;
+    padding:8px 15px;
+    margin-left:10px;
+    border-radius:5px;
+}
+
+.topbar a:hover{
+    background:#555;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:80vh;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0px 4px 15px rgba(0,0,0,0.2);
+    text-align:center;
+    width:300px;
+}
+
+.card h2{
+    margin-bottom:25px;
+}
+
+/* Fix alignment */
+.card a,
+.card button{
+    display:block;
+    width:100%;
+    text-decoration:none;
+    background:#4CAF50;
+    color:white;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    box-sizing:border-box;
+}
+
+.card a:hover,
+.card button:hover{
+    background:#45a049;
+}
+
+/* Remove default form spacing */
+.card form{
+    margin:0;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+    <a href="login.html">Login</a>
+    <a href="sign-up.html">Sign Up</a>
+</div>
+
+<div class="container">
+    <div class="card">
+
+        <h2>Wallet Dashboard</h2>
+
+        <a href="insert_into_wallet.html">Insert Into Wallet</a>
+        <a href="transaction.html">Make Payment</a>
+
+        <form action="transaction_history" method="post">
+            <button type="submit">Show Transaction</button>
+        </form>
+
+    </div>
+</div>
+
+</body>
 </html>

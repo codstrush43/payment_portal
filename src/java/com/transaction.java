@@ -55,7 +55,22 @@ public class transaction extends HttpServlet{
                 if(check>0)
                 {
                     con.commit();
-                    pw.println("<h1>You Do Not Have That Much Balance<br>Please Add Balance</h1>");
+                    pw.println("<html><head>");
+pw.println("<style>");
+pw.println("body{margin:0;font-family:Arial;background:linear-gradient(120deg,#74ebd5,#ACB6E5);height:100vh;display:flex;justify-content:center;align-items:center;}");
+pw.println(".card{background:white;padding:40px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.2);text-align:center;}");
+pw.println("a{display:inline-block;margin-top:15px;padding:10px 15px;background:#e74c3c;color:white;text-decoration:none;border-radius:5px;}");
+pw.println("a:hover{background:#c0392b;}");
+pw.println("</style>");
+pw.println("</head><body>");
+
+pw.println("<div class='card'>");
+pw.println("<h1>Insufficient Balance</h1>");
+pw.println("<p>Please add balance to continue</p>");
+pw.println("<a href='index.html'>Go To Home</a>");
+pw.println("</div>");
+
+pw.println("</body></html>");
                     return;
                 }
             }
@@ -84,18 +99,64 @@ public class transaction extends HttpServlet{
                 if(check>0)
                 {
                     con.commit();
-                    pw.println("<h1>Transaction Successful!!");
+                    pw.println("<html><head>");
+pw.println("<style>");
+pw.println("body{margin:0;font-family:Arial;background:linear-gradient(120deg,#74ebd5,#ACB6E5);height:100vh;display:flex;justify-content:center;align-items:center;}");
+pw.println(".card{background:white;padding:40px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.2);text-align:center;}");
+pw.println("a{display:inline-block;margin-top:15px;padding:10px 15px;background:#4CAF50;color:white;text-decoration:none;border-radius:5px;}");
+pw.println("a:hover{background:#45a049;}");
+pw.println("</style>");
+pw.println("</head><body>");
+
+pw.println("<div class='card'>");
+pw.println("<h1>Transaction Successful</h1>");
+pw.println("<a href='index.html'>Go To Home</a>");
+pw.println("</div>");
+
+pw.println("</body></html>");
+                    
                 }
                 else
                 {
                     con.rollback();
-                    pw.println("<h1>Somthing Went Wrong <br>Please Try Again!!!</h1>");
+                    pw.println("<html><head>");
+pw.println("<style>");
+pw.println("body{margin:0;font-family:Arial;background:linear-gradient(120deg,#74ebd5,#ACB6E5);height:100vh;display:flex;justify-content:center;align-items:center;}");
+pw.println(".card{background:white;padding:40px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.2);text-align:center;}");
+pw.println("a{display:inline-block;margin-top:15px;padding:10px 15px;background:#e74c3c;color:white;text-decoration:none;border-radius:5px;}");
+pw.println("a:hover{background:#c0392b;}");
+pw.println("</style>");
+pw.println("</head><body>");
+
+pw.println("<div class='card'>");
+pw.println("<h1>Something Went Wrong</h1>");
+pw.println("<p>Please try again</p>");
+pw.println("<a href='index.html'>Go To Home</a>");
+pw.println("</div>");
+
+pw.println("</body></html>");
                 }
             }       
             else
             {
                 con.rollback();
-                pw.println("<h1>Somthing Went Wrong <br>Please Try Again!!!</h1>");
+                pw.println("<html><head>");
+pw.println("<style>");
+pw.println("body{margin:0;font-family:Arial;background:linear-gradient(120deg,#74ebd5,#ACB6E5);height:100vh;display:flex;justify-content:center;align-items:center;}");
+pw.println(".card{background:white;padding:40px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.2);text-align:center;}");
+pw.println("a{display:inline-block;margin-top:15px;padding:10px 15px;background:#e74c3c;color:white;text-decoration:none;border-radius:5px;}");
+pw.println("a:hover{background:#c0392b;}");
+pw.println("</style>");
+pw.println("</head><body>");
+
+pw.println("<div class='card'>");
+pw.println("<h1>Something Went Wrong</h1>");
+pw.println("<p>Please try again</p>");
+pw.println("<a href='index.html'>Go To Home</a>");
+pw.println("</div>");
+
+pw.println("</body></html>");
+                
             }
         }
         catch(SQLException e)

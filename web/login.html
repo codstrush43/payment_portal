@@ -1,21 +1,91 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
-    <head>
-        <title>Login</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>
-            <form action="login" method="post">
-            User_id :<input type="number" name="user_id" placeholder="Enter user id"/>
-            Password :<input type="password" name="password" placeholder="Enter password">
-            <button type="submit">submit</button>
-            </form>
-        </div>
-    </body>
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(120deg,#74ebd5,#ACB6E5);
+    height:100vh;
+}
+
+/* center container */
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* card */
+.card{
+    background:white;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0px 4px 15px rgba(0,0,0,0.2);
+    text-align:center;
+    width:320px;
+}
+
+.card h2{
+    margin-bottom:20px;
+}
+
+/* input fields */
+.card input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+/* button */
+.card button{
+    width:100%;
+    padding:10px;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card button:hover{
+    background:#45a049;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Login</h2>
+
+        <form action="login" method="post">
+
+            User ID
+            <input type="number" name="user_id" placeholder="Enter user id" required>
+
+            Password
+            <input type="password" name="password" placeholder="Enter password" required>
+
+            <button type="submit">Login</button>
+
+        </form>
+    </div>
+
+</div>
+
+</body>
 </html>

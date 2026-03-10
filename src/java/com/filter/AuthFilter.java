@@ -21,7 +21,7 @@ public class AuthFilter implements Filter {
         HttpServletResponse res=(HttpServletResponse)response;
         String path=req.getServletPath();
         
-        if(path.equals("/http://localhost:9494/payment_portal/login.html") || path.equals("/http://localhost:9494/payment_portal/sign-up.html"))
+        if(path.equals("http://localhost:9494/payment_portal/login.html") || path.equals("http://localhost:9494/payment_portal/sign-up.html"))
         {
             fc.doFilter(request,response);
             return;

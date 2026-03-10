@@ -50,14 +50,43 @@ public class sign_up extends HttpServlet
             int n=ps.executeUpdate();
             if(n<=0)
             {
-                System.out.println("someting get wrong!!!");
+                pw.print("<html><head>");
+                pw.print("<style>");
+                pw.print("body{font-family:Arial;background:linear-gradient(120deg,#74ebd5,#ACB6E5);height:100vh;display:flex;justify-content:center;align-items:center;margin:0;}");
+            pw.print(".card{background:white;padding:40px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.2);text-align:center;}");
+                pw.print("a{display:inline-block;margin-top:15px;padding:10px 15px;background:#e74c3c;color:white;text-decoration:none;border-radius:5px;}");
+                pw.print("a:hover{background:#c0392b;}");
+                pw.print("</style>");
+                pw.print("</head><body>");
+
+                pw.print("<div class='card'>");
+                pw.print("<h1>Something went wrong! Please try again.</h1>");
+                pw.print("<a href='signup.html'>Try Again</a>");
+                pw.print("</div>");
+
+                pw.print("</body></html>");
             }
             else 
             {
-                ps=con.prepareStatement("insert into wallet(user_id) values(?)");
-                ps.setInt(1,user_id);
-                ps.executeUpdate();
-                pw.print("<h1>successfull</h1>");
+//                ps=con.prepareStatement("insert into wallet(user_id) values(?)");
+//                ps.setInt(1,user_id);
+//                ps.executeUpdate();
+
+                pw.print("<html><head>");
+                pw.print("<style>");
+                pw.print("body{font-family:Arial;background:linear-gradient(120deg,#74ebd5,#ACB6E5);height:100vh;display:flex;justify-content:center;align-items:center;margin:0;}");
+                pw.print(".card{background:white;padding:40px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.2);text-align:center;}");
+                pw.print("a{display:inline-block;margin-top:15px;padding:10px 15px;background:#4CAF50;color:white;text-decoration:none;border-radius:5px;}");
+                pw.print("a:hover{background:#45a049;}");
+                pw.print("</style>");
+                pw.print("</head><body>");
+
+                pw.print("<div class='card'>");
+                pw.print("<h1>Signup Successful</h1>");
+                pw.print("<a href='index.html'>Go To Home</a>");
+                pw.print("</div>");
+
+                pw.print("</body></html>");
             }
 //            ps=con.prepareStatement("select user_id ");
 //            req.setAttribute("user_id",user_id);
